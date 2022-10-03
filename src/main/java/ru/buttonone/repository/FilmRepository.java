@@ -9,4 +9,6 @@ import java.util.List;
 public interface FilmRepository {
 
     List<Film> findAll();
+
+    Film getById(long id);
 }
