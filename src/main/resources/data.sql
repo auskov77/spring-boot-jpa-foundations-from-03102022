@@ -1,5 +1,5 @@
-insert into genre(id, name) values (1, 'fantasy');
-insert into genre(id, name) values (2, 'fantastic');
+insert into genre(id, name) values (default, 'fantasy');
+insert into genre(id, name) values (default, 'fantastic');
 
 insert into films(id, title, genre_id) values (1, 'Harry Potter', 1);
 insert into films(id, title, genre_id) values (2, 'Back to the Future', 2);

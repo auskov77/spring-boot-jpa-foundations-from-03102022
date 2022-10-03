@@ -1,9 +1,12 @@
 package ru.buttonone.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "films")
+@Data
 public class Film {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
