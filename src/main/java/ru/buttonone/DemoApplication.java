@@ -22,20 +22,27 @@ public class DemoApplication {
 		System.out.println("genreRepository.getById(1L) = " + genreRepository.getById(1L));
 		Genre westernGenre = new Genre(0L, "western");
 
-		genreRepository.insert(westernGenre);
+		genreRepository.save(westernGenre);
 		System.out.println("genreRepository.getById(3L) = " + genreRepository.getById(3L));
 
 		Genre westernGenre2 = genreRepository.getById(3L);
 		westernGenre2.setName("WESTERN");
-		genreRepository.update(westernGenre2);
+		genreRepository.save(westernGenre2);
 		System.out.println("genreRepository.getById(3L) = " + genreRepository.getById(3L));
 
 		genreRepository.deleteById(3L);
-		System.out.println("genreRepository.getById(3L) = " + genreRepository.getById(3L));
+		System.out.println("genreRepository.findById(3L).isPresent() = " + genreRepository.findById(3L).isPresent());
 
 		FilmRepository filmRepository = context.getBean(FilmRepository.class);
 
 		System.out.println("filmRepository.findAll() = " + filmRepository.findAll());
+
+//		System.out.println("genreRepository.getByName(\"WESTERN\") = " + genreRepository.getByName("WESTERN"));
+
+		System.out.println("genreRepository.getByName(\"fantastic\").isPresent() = " + genreRepository.getByName("fantastic").isPresent());
+
+		System.out.println("filmRepository.findFilmByTitleAndGenre(\"Harry Potter\", genreRepository.getById(1L)).isPresent() = " +
+				filmRepository.findFilmByTitleAndGenre("Harry Potter", genreRepository.getById(1L)).isPresent());
 
 //		Console.main(args);
 
